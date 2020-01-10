@@ -70,7 +70,7 @@ def download_file():
     df3.drop(columns=['id', 'pp', 'First', 'tm'], inplace=True)
     df4 = df3.rename(columns={"president": "President number"})
     df5 = df4.reindex(columns=['Name', 'Party', 'Presidential term', 'President number'])
-    df5.insert(4, 'TimeStamp', pd.datetime.now().replace(microsecond=0))
+    df5.insert(4, 'Ingestion Time', pd.datetime.now().replace(microsecond=0))
     output_file = StringIO()
     filename = "%s.csv" % 'output file'
     df5.to_csv(output_file, encoding='utf-8', index=False)
